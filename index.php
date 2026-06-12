@@ -2,22 +2,33 @@
 <html>
 <head>
     <title>Hospital Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Hospital Management System</h1>
+<div class="header">
+    <h1>🏥 Hospital Management System</h1>
+</div>
 
-    <a href="add_patient.php">
-        <button>Add Patient</button>
-    </a>
+<div class="container">
+    <div class="card">
 
-    <a href="view_patients.php">
-        <button>View Patients</button>
-    </a>
+        <h2>Dashboard</h2>
 
-    <a href="search_patient.php">
-        <button>Search Patient</button>
-    </a>
+        <a class="btn" href="add_patient.php">
+            Add Patient
+        </a>
+
+        <a class="btn" href="view_patients.php">
+            View Patients
+        </a>
+
+        <a class="btn" href="search_patient.php">
+            Search Patient
+        </a>
+
+    </div>
+</div>
 
 </body>
 </html>
