@@ -21,6 +21,7 @@ $result = mysqli_query($conn, "SELECT * FROM patients");
     <th>Age</th>
     <th>Gender</th>
     <th>Phone</th>
+    <th>Action</th>
 </tr>
 
 <?php
@@ -33,6 +34,12 @@ while($row = mysqli_fetch_assoc($result))
     <td><?php echo $row['age']; ?></td>
     <td><?php echo $row['gender']; ?></td>
     <td><?php echo $row['phone']; ?></td>
+
+    <td>
+        <a href="delete_patient.php?id=<?php echo $row['id']; ?>">
+            Delete
+        </a>
+    </td>
 </tr>
 <?php
 }
