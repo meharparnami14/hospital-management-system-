@@ -8,48 +8,63 @@ $result = mysqli_query($conn, "SELECT * FROM patients");
 <html>
 <head>
     <title>View Patients</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Patient Records</h2>
+<div class="header">
+    <h1>🏥 Hospital Management System</h1>
+</div>
 
-<table border="1" cellpadding="10">
+<div class="container">
 
-<tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Age</th>
-    <th>Gender</th>
-    <th>Phone</th>
-    <th>Action</th>
-</tr>
+    <div class="card">
 
-<?php
-while($row = mysqli_fetch_assoc($result))
-{
-?>
-<tr>
-    <td><?php echo $row['id']; ?></td>
-    <td><?php echo $row['name']; ?></td>
-    <td><?php echo $row['age']; ?></td>
-    <td><?php echo $row['gender']; ?></td>
-    <td><?php echo $row['phone']; ?></td>
+        <h2>Patient Records</h2>
 
-    <td>
-        <a href="delete_patient.php?id=<?php echo $row['id']; ?>">
-            Delete
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+
+            <?php
+            while($row = mysqli_fetch_assoc($result))
+            {
+            ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['age']; ?></td>
+                <td><?php echo $row['gender']; ?></td>
+                <td><?php echo $row['phone']; ?></td>
+
+                <td>
+                    <a class="btn" href="delete_patient.php?id=<?php echo $row['id']; ?>">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            <?php
+            }
+            ?>
+
+        </table>
+
+        <br>
+
+        <a class="btn" href="index.php">
+            Back Home
         </a>
-    </td>
-</tr>
-<?php
-}
-?>
 
-</table>
+    </div>
 
-<br>
-
-<a href="index.php">Back to Home</a>
+</div>
 
 </body>
 </html>
