@@ -30,7 +30,8 @@ $result = mysqli_query($conn, "SELECT * FROM patients");
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Phone</th>
-                <th>Action</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
 
             <?php
@@ -38,6 +39,7 @@ $result = mysqli_query($conn, "SELECT * FROM patients");
             {
             ?>
             <tr>
+
                 <td><?php echo $row['id']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['age']; ?></td>
@@ -45,10 +47,19 @@ $result = mysqli_query($conn, "SELECT * FROM patients");
                 <td><?php echo $row['phone']; ?></td>
 
                 <td>
-                    <a class="btn" href="delete_patient.php?id=<?php echo $row['id']; ?>">
+                    <a class="btn"
+                       href="edit_patient.php?id=<?php echo $row['id']; ?>">
+                        Edit
+                    </a>
+                </td>
+
+                <td>
+                    <a class="btn"
+                       href="delete_patient.php?id=<?php echo $row['id']; ?>">
                         Delete
                     </a>
                 </td>
+
             </tr>
             <?php
             }
